@@ -70,6 +70,11 @@ public class Main {
 			System.out.println();
 		});
 		
+		// find out oldest female
+
+		people.stream().filter(person -> person.getGender().equals(Gender.FEMALE))
+				.max(Comparator.comparing(Person::getAge)).map(Person::getName).ifPresent(System.out::println);
+		
 	}
 
 	private static List<Person> getPeople() {
